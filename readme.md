@@ -1,3 +1,3 @@
 # Elit Accordion
-WordPress shortcode to display an accordion.
+WordPress shortcodes to display an accordion.
 
