@@ -71,7 +71,7 @@ function elit_accordion_shortcode_init ()
       $shortcode_atts = shortcode_atts(
         array(
           'title' => '',
-          'class' => '',
+          'class' => 'accordion-head',
         ),
         $atts
       );
@@ -79,9 +79,7 @@ function elit_accordion_shortcode_init ()
       $markup  = '<section>';
       $markup .= '  <input type="checkbox" checked="checked">';
       $markup .= '  <i class="elit-accordion__icon"></i>';
-      $markup .= '  <h2 class="' . $shortcode_atts['class'] . '">' . $shortcode_atts['title'] . '</h2>';
-      $markup .= $content;
-      $markup .= '</section>';
+      $markup .= '  <h2 class="' . $shortcode_atts['class'] . '">' . $shortcode_atts['title'] . '</h2>' . $content . '</section>';
 
       return do_shortcode( $markup );
     }
@@ -100,9 +98,24 @@ function elit_accordion_shortcode_init ()
      */
     function elit_accordion_item_shortcode( $atts, $content = null ) 
     {
+      $shortcode_atts = shortcode_atts(
+        array(
+          'side-padding' => 'false',
+          'top-padding' => 'true',
+        ),
+        $atts
+      );
+
+      $shortcode_atts = elit_accordion_format_atts( $shortcode_atts );
+
+      $side_padding = $shortcode_atts['side_padding'] === 'false' ? 'padding-left: 0; padding-right: 0;' : '';
+      $top_padding = $shortcode_atts['top_padding'] === 'true' ? '' : 'padding-top: 0;';
+      $padding = (bool) $shortcode_atts['side_padding'] || 
+                 (bool) $shortcode_atts['top_padding'] ? 
+                    sprintf('style="%s %s"', $side_padding, $top_padding ) : '';
 
       $markup = sprintf( '%s%s%s', 
-                         '<div class="elit-accordion__item">',
+                         '<div class="elit-accordion__item"' . $padding . '>',
                          $content,
                          '</div>' );
 
@@ -112,4 +125,19 @@ function elit_accordion_shortcode_init ()
   add_shortcode( 'accordion-item', 'elit_accordion_item_shortcode' );
 }
 
+/**
+ * Change a hyphen to an underscore in the keys to an array.
+ *
+ * @param array $atts The shortcode attributes
+ * @return array $atts The shortcode attributes with replaced keys
+ */
+function elit_accordion_format_atts( $atts ) {
+  
+  return array_combine(
+    array_map( function( $key ) use ( $atts ) { 
+      return str_replace( '-', '_', $key );
+    }, array_keys( $atts ) ), 
+    array_values( $atts )
+  );
+}
 add_action( 'init' , 'elit_accordion_shortcode_init' );
