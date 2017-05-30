@@ -3,10 +3,11 @@
   max-width: 90%;
   padding: 1rem 0;
   cursor: pointer;
-  transition: padding .3s linear; }
+  transition: color .3s linear; }
 
+.elit-accordion__items section input[type=checkbox]:not(:checked) + i + h2,
 .elit-accordion__items section > input:hover + i + h2 {
-  padding-left: 5px; }
+  color: #d53847; }
 
 .elit-accordion .transition,
 .elit-accordion__item,
@@ -64,9 +65,16 @@
 .elit-accordion__items section i.elit-accordion__icon:after {
   content: "";
   position: absolute;
-  background-color: #d53847;
   width: 1px;
-  height: 12px; }
+  height: 12px;
+  background-color: #666;
+  transition: all .3s; }
+
+.elit-accordion__items section input[type=checkbox]:not(:checked) ~ i.elit-accordion__icon:before,
+.elit-accordion__items section input[type=checkbox]:not(:checked) ~ i.elit-accordion__icon:after,
+.elit-accordion__items section > input:hover + i.elit-accordion__icon:before,
+.elit-accordion__items section > input:hover + i.elit-accordion__icon:after {
+  background-color: #d53847; }
 
 .elit-accordion__items section i.elit-accordion__icon:before {
   -webkit-transform: translate(-4px, 0) rotate(45deg);

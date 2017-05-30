@@ -3,7 +3,7 @@
 Plugin Name: Elit Accordion
 Plugin URI:  
 Description: Shortcodes to create an accordion
-Version:  0.5.0
+Version:  0.5.1
 Author: Patrick Sinco
 Author URI: github.com/pjsinco
 License: GPL2
