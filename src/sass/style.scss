@@ -1,4 +1,6 @@
 $red: #d53847;
+$egyptianblue: #2731aa;
+$primary: $egyptianblue;
 
 .elit-accordion h2 {
   display: block;
@@ -10,7 +12,7 @@ $red: #d53847;
 
 .elit-accordion__items section input[type=checkbox]:not(:checked) + i + h2, 
 .elit-accordion__items section > input:hover + i + h2 {
-  color: $red;
+  color: $primary;
 }
 
 .elit-accordion .transition,
@@ -83,7 +85,7 @@ $red: #d53847;
 .elit-accordion__items section input[type=checkbox]:not(:checked) ~ i.elit-accordion__icon:after,
 .elit-accordion__items section > input:hover + i.elit-accordion__icon:before, 
 .elit-accordion__items section > input:hover + i.elit-accordion__icon:after {
-  background-color: $red;
+  background-color: $primary;
 }
 
 .elit-accordion__items section i.elit-accordion__icon:before {

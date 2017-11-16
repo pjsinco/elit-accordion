@@ -7,7 +7,7 @@
 
 .elit-accordion__items section input[type=checkbox]:not(:checked) + i + h2,
 .elit-accordion__items section > input:hover + i + h2 {
-  color: #d53847; }
+  color: #2731aa; }
 
 .elit-accordion .transition,
 .elit-accordion__item,
@@ -74,7 +74,7 @@
 .elit-accordion__items section input[type=checkbox]:not(:checked) ~ i.elit-accordion__icon:after,
 .elit-accordion__items section > input:hover + i.elit-accordion__icon:before,
 .elit-accordion__items section > input:hover + i.elit-accordion__icon:after {
-  background-color: #d53847; }
+  background-color: #2731aa; }
 
 .elit-accordion__items section i.elit-accordion__icon:before {
   -webkit-transform: translate(-4px, 0) rotate(45deg);
